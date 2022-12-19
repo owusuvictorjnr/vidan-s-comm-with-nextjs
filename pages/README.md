@@ -5,7 +5,7 @@
 1. Create Next app
 2. Install Tailwindcss
 
-3.Create Website Layout
+3. Create Website Layout
 
 4. create layout component
 
@@ -15,6 +15,15 @@
    4. add tailwindcss classes
 
 5. List Products
+
    1. add data.js
    2. add images
    3. render products
+
+6. Create Product Details
+   1. create product page
+   2. create 3 columns
+   3. show image in first column
+   4. show product info in second column
+   5. show add to cart action on third column
+   6. add styles
