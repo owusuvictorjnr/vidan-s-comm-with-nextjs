@@ -20,6 +20,14 @@ const CartScreen = () => {
     });
   };
 
+  const updateCartHandler = (item, qty) => {
+    const quantity = Number(qty);
+    dispatch({
+      type: 'CART_ADD_ITEM',
+      payload: { ...item, quantity },
+    });
+  };
+
   return (
     <Layout title="Shopping Cart">
       <h1 className="mb-4 text-xl capitalize"> shopping cart</h1>
@@ -60,7 +68,20 @@ const CartScreen = () => {
                       </Link>
                     </td>
 
-                    <td className="p-5 text-right">{item.quantity}</td>
+                    <td className="p-5 text-right">
+                      <select
+                        value={item.countInStock}
+                        onChange={(e) =>
+                          updateCartHandler(item, e.target.value)
+                        }
+                      >
+                        {[...Array(item.countInStock).keys()].map((x) => (
+                          <option key={x + 1} value={x + 1}>
+                            {x + 1}
+                          </option>
+                        ))}
+                      </select>
+                    </td>
                     <td className="p-5 text-right">&#8373;{item.price}</td>
                     <td className="p-5 text-center">
                       <button onClick={() => removeItemHandler(item)}>
@@ -70,9 +91,10 @@ const CartScreen = () => {
                           viewBox="0 0 24 24"
                           strokeWidth={1.5}
                           stroke="currentColor"
-                          className="w-6 h-6"
+                          className="w-5 h-5"
                         >
                           <path
+                            // className="text-red-500 flex justify-end items-end"
                             strokeLinecap="round"
                             strokeLinejoin="round"
                             d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
