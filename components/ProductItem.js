@@ -19,7 +19,7 @@ const ProductItem = ({ product }) => {
 
         <p className="mb-2">{product.brand}</p>
 
-        <p>&#8373; {product.price}</p>
+        <p>&#8373;{product.price}</p>
 
         <button type="button" className="primary-button">
           add to cart
